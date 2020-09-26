@@ -27,7 +27,6 @@ chmod 755 setup.sh
 
 ## Config
 ```
-echo "real_ip_header X-Forwarded-For;" > /etc/nginx/nginx-includes.conf
 cd /usr/local/directadmin/
 ./directadmin set ssl 1
 ./directadmin set ssl_redirect_host $(hostname -f)
