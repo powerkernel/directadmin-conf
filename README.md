@@ -60,4 +60,13 @@ wget -O brute_force_notice_ip.sh http://files.directadmin.com/services/all/block
 chmod 700 brute_force_notice_ip.sh
 systemctl start iptables
 
+/usr/local/directadmin/directadmin set lost_password 1
+/usr/local/directadmin/directadmin set clear_blacklist_ip_time 1440
+/usr/local/directadmin/directadmin set unblock_brute_ip_time 1440
+/usr/local/directadmin/directadmin set ip_brutecount 10
+/usr/local/directadmin/directadmin set user_brutecount 10
+/usr/local/directadmin/directadmin set enforce_difficult_passwords 1
+/usr/local/directadmin/directadmin set purge_spam_days 7
+service directadmin restart
+
 ```
