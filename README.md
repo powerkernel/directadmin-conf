@@ -27,14 +27,15 @@ chmod 755 setup.sh
 
 ## Config
 ```
-cd /usr/local/directadmin/
-./directadmin set ssl 1
-./directadmin set ssl_redirect_host $(hostname -f)
-./directadmin set force_hostname $(hostname -f)
-./directadmin set carootcert /usr/local/directadmin/conf/carootcert.pem
-./directadmin set letsencrypt_renewal_notice_to_admins 0
-./directadmin set one_click_pma_login 1
-cd /usr/local/directadmin/scripts
-./letsencrypt.sh request $(hostname -f) ec384
+/usr/local/directadmin/directadmin set ssl 1
+/usr/local/directadmin/directadmin set ssl_redirect_host $(hostname -f)
+/usr/local/directadmin/directadmin set force_hostname $(hostname -f)
+/usr/local/directadmin/directadmin set carootcert /usr/local/directadmin/conf/carootcert.pem
+/usr/local/directadmin/directadmin set letsencrypt_renewal_notice_to_admins 0
+/usr/local/directadmin/directadmin set one_click_pma_login 1
+/usr/local/directadmin/directadmin set hide_brute_force_notifications 1
+
+/usr/local/directadmin/scripts/letsencrypt.sh request $(hostname -f) ec384
+
 sed -i 's+tcp://localhost+ssl://localhost+g' /var/www/html/roundcube/plugins/password/config.inc.php
 ```
