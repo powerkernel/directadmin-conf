@@ -38,4 +38,26 @@ chmod 755 setup.sh
 /usr/local/directadmin/scripts/letsencrypt.sh request $(hostname -f) ec384
 
 sed -i 's+tcp://localhost+ssl://localhost+g' /var/www/html/roundcube/plugins/password/config.inc.php
+
+yum -y install iptables-services
+systemctl enable iptables
+cd /usr/libexec/iptables
+mv iptables.init iptables.init.backup
+wget -O iptables.init http://files.directadmin.com/services/all/block_ips/2.2/iptables
+chmod 755 iptables.init
+
+cd /usr/local/directadmin/scripts/custom
+wget -O block_ip.sh http://files.directadmin.com/services/all/block_ips/2.2/block_ip.sh
+wget -O show_blocked_ips.sh http://files.directadmin.com/services/all/block_ips/2.2/show_blocked_ips.sh
+wget -O unblock_ip.sh http://files.directadmin.com/services/all/block_ips/2.2/unblock_ip.sh
+chmod 700 block_ip.sh show_blocked_ips.sh unblock_ip.sh
+
+touch /root/blocked_ips.txt
+touch /root/exempt_ips.txt
+
+cd /usr/local/directadmin/scripts/custom
+wget -O brute_force_notice_ip.sh http://files.directadmin.com/services/all/block_ips/2.2/brute_force_notice_ip.sh
+chmod 700 brute_force_notice_ip.sh
+systemctl start iptables
+
 ```
