@@ -1,7 +1,7 @@
 # directadmin-conf
 Direct Admin Conf
 
-## config
+## Prepare
 ```
 export CID=`YOUR_CLIENT_ID`
 export LID=`YOUR_LICENSE_ID`
@@ -23,4 +23,19 @@ cd /root
 wget directadmin.com/setup.sh
 chmod 755 setup.sh
 ./setup.sh $CID $LID $(hostname -f) $NETDEV $LIP
+```
+
+## Config
+```
+echo "real_ip_header X-Forwarded-For;" > /etc/nginx/nginx-includes.conf
+cd /usr/local/directadmin/
+./directadmin set ssl 1
+./directadmin set ssl_redirect_host $(hostname -f)
+./directadmin set force_hostname $(hostname -f)
+./directadmin set carootcert /usr/local/directadmin/conf/carootcert.pem
+./directadmin set letsencrypt_renewal_notice_to_admins 0
+./directadmin set one_click_pma_login 1
+cd /usr/local/directadmin/scripts
+./letsencrypt.sh request $(hostname -f) ec384
+sed -i 's+tcp://localhost+ssl://localhost+g' /var/www/html/roundcube/plugins/password/config.inc.php
 ```
