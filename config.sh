@@ -40,3 +40,4 @@ chattr +i /usr/libexec/iptables/iptables.init
 touch /root/blocked_ips.txt
 touch /root/exempt_ips.txt
 systemctl start iptables
+service directadmin restart
