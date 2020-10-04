@@ -16,7 +16,6 @@
 /usr/local/directadmin/directadmin set enforce_difficult_passwords 1
 /usr/local/directadmin/directadmin set purge_spam_days 7
 sed -i 's+tcp://localhost+ssl://localhost+g' /var/www/html/roundcube/plugins/password/config.inc.php
-service directadmin restart
 
 # generate SSH + DKIM hostname
 /usr/local/directadmin/scripts/letsencrypt.sh request $(hostname -f) ec384
