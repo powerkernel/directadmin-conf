@@ -1,4 +1,5 @@
 #!/bin/sh
+yum install -y wget
 mkdir -p /usr/local/directadmin/custombuild
 wget -O /usr/local/directadmin/custombuild/options.conf https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/options-cln.conf
 wget -O /usr/local/directadmin/custombuild/php_extensions.conf https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/php_extensions.conf
