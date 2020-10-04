@@ -36,6 +36,7 @@ chmod 755 setup.sh
 /usr/local/directadmin/directadmin set hide_brute_force_notifications 1
 
 /usr/local/directadmin/scripts/letsencrypt.sh request $(hostname -f) ec384
+/usr/local/directadmin/scripts/dkim_create.sh $(hostname -f)
 
 sed -i 's+tcp://localhost+ssl://localhost+g' /var/www/html/roundcube/plugins/password/config.inc.php
 
