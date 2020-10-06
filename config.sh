@@ -49,3 +49,20 @@ touch /root/blocked_ips.txt
 touch /root/exempt_ips.txt
 systemctl start iptables
 service directadmin restart
+
+# Email templates
+mkdir -p /usr/local/directadmin/data/templates/custom
+wget -O /usr/local/directadmin/data/templates/custom/a_welcome.txt https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/email-templates/a_welcome.html
+wget -O /usr/local/directadmin/data/templates/custom/u_welcome.txt https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/email-templates/u_welcome.html
+wget -O /usr/local/directadmin/data/templates/custom/r_welcome.txt https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/email-templates/r_welcome.html
+wget -O /usr/local/directadmin/data/templates/custom/message_footer.txt https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/email-templates/message_footer.txt
+wget -O /usr/local/directadmin/data/templates/custom/message_tech.txt https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/email-templates/message_tech.html
+wget -O /usr/local/directadmin/data/templates/custom/message_user.txt https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/email-templates/message_user.html
+wget -O /usr/local/directadmin/data/templates/custom/lost_password_email.txt https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/email-templates/lost_password_email.html
+
+# DNS
+wget -O /usr/local/directadmin/data/templates/custom/dns_a.conf https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/dns/dns_a.conf
+wget -O /usr/local/directadmin/data/templates/custom/dns_aaaa.conf https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/dns/dns_aaaa.conf
+wget -O /usr/local/directadmin/data/templates/custom/dns_cname.conf https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/dns/dns_cname.conf
+wget -O /usr/local/directadmin/data/templates/custom/dns_mx.conf https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/dns/dns_mx.conf
+wget -O /usr/local/directadmin/data/templates/custom/dns_txt.conf https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/dns/dns_txt.conf
