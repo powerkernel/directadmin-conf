@@ -66,3 +66,12 @@ wget -O /usr/local/directadmin/data/templates/custom/dns_aaaa.conf https://raw.g
 wget -O /usr/local/directadmin/data/templates/custom/dns_cname.conf https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/dns/dns_cname.conf
 wget -O /usr/local/directadmin/data/templates/custom/dns_mx.conf https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/dns/dns_mx.conf
 wget -O /usr/local/directadmin/data/templates/custom/dns_txt.conf https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/dns/dns_txt.conf
+
+# STMP for admin
+wget -O /etc/exim.routers.pre.conf http://files.directadmin.com/services/SpamBlocker/smart_route/exim.routers.pre.conf
+wget -O /etc/exim.transports.pre.conf http://files.directadmin.com/services/SpamBlocker/smart_route/exim.transports.pre.conf
+wget -O /etc/exim.authenticators.post.conf http://files.directadmin.com/services/SpamBlocker/smart_route/exim.authenticators.post.conf
+sed -i "s/your@email.com : yourpass/$SMTP_USER : $SMTP_PASS/g" /etc/exim.authenticators.post.conf
+sed -i "s/smtp.yourisp.com/$SMTP_HOST::$SMTP_PORT/g" /etc/exim.routers.pre.conf
+sed -i "s/manualroute/manualroute\n     senders = *@$(hostname -f)/g" /etc/exim.routers.pre.conf
+service exim restart
