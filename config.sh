@@ -16,15 +16,10 @@
 service directadmin restart
 
 # DKIM
-/usr/local/directadmin/directadmin set dkim 1
-service directadmin restart
-/usr/local/directadmin/custombuild/build update
-/usr/local/directadmin/custombuild/build exim
-/usr/local/directadmin/custombuild/build eximconf
 /usr/local/directadmin/scripts/dkim_create.sh $(hostname -f)
 
 # SSL
-/usr/local/directadmin/scripts/letsencrypt.sh request $(hostname -f) ec384
+/usr/local/directadmin/scripts/letsencrypt.sh request_single $(hostname -f) ec384
 /usr/local/directadmin/directadmin set carootcert /usr/local/directadmin/conf/carootcert.pem
 /usr/local/directadmin/directadmin set ssl 1
 sed -i 's+tcp://localhost+ssl://localhost+g' /var/www/html/roundcube/plugins/password/config.inc.php
