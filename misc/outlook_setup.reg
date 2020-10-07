@@ -1,0 +1,21 @@
+REGEDIT4
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Account Manager\Accounts\\|LOGIN|]
+"Account Name"="|EMAIL|"
+"Connection Type"=dword:00000003
+"POP3 Server"="|HOSTNAME|"
+"SMTP Server"="|HOSTNAME|"
+"POP3 User Name"="|LOGIN|"
+"SMTP User Name"=""
+"POP3 Prompt for Password"=dword:00000000
+"SMTP Prompt for Password"=dword:00000000
+"SMTP Display Name"="|EMAIL|"
+"SMTP Email Address"="|EMAIL|"
+"POP3 Skip Account"=dword:00000000
+"SMTP Use Sicily"=dword:00000002
+"POP3 Timeout"=dword:0000003c
+"SMTP Timeout"=dword:0000003c
+"SMTP Secure Connection"=dword:00000000
+"SMTP Split Messages"=dword:00000000
+"POP3 Port"=dword:0000006e
+"SMTP Port"=dword:0000024b

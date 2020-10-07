@@ -45,11 +45,21 @@ touch /root/exempt_ips.txt
 systemctl start iptables
 service directadmin restart
 
+# disable email for new account
+mkdir -p /usr/local/directadmin/scripts/custom
+wget -O /usr/local/directadmin/scripts/custom/user_create_post.sh https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/scripts/user_create_post.sh
+chmod 755 /usr/local/directadmin/scripts/custom/user_create_post.sh
+
 # Email templates
 mkdir -p /usr/local/directadmin/data/templates/custom
 wget -O /usr/local/directadmin/data/templates/custom/a_welcome.txt https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/email-templates/a_welcome.html
 wget -O /usr/local/directadmin/data/templates/custom/u_welcome.txt https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/email-templates/u_welcome.html
 wget -O /usr/local/directadmin/data/templates/custom/r_welcome.txt https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/email-templates/r_welcome.html
+
+wget -O /usr/local/directadmin/data/admin/a_welcome.txt https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/email-templates/a_welcome.html
+wget -O /usr/local/directadmin/data/admin/r_welcome.txt https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/email-templates/r_welcome.html
+wget -O /usr/local/directadmin/data/users/admin/u_welcome.txt https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/email-templates/u_welcome.html
+
 wget -O /usr/local/directadmin/data/templates/custom/message_footer.txt https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/email-templates/message_footer.txt
 wget -O /usr/local/directadmin/data/templates/custom/message_tech.txt https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/email-templates/message_tech.html
 wget -O /usr/local/directadmin/data/templates/custom/message_user.txt https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/email-templates/message_user.html
@@ -70,3 +80,7 @@ sed -i "s/your@email.com : yourpass/$SMTP_USER : $SMTP_PASS/g" /etc/exim.authent
 sed -i "s/smtp.yourisp.com/$SMTP_HOST::$SMTP_PORT/g" /etc/exim.routers.pre.conf
 sed -i "s/manualroute/manualroute\n     senders = *@$(hostname -f)/g" /etc/exim.routers.pre.conf
 service exim restart
+
+# MISC
+wget -O /usr/local/directadmin/data/templates/custom/mail_settings.html https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/misc/mail_settings.html
+wget -O /usr/local/directadmin/data/templates/custom/outlook_setup.reg https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/misc/outlook_setup.reg
