@@ -11,6 +11,9 @@ export SMTP_USER=`YOUR_SMTP_USER`
 export SMTP_PASS=`YOUR_SMTP_PASS`
 export SMTP_HOST=`YOUR_SMTP_HOST`
 export SMTP_PORT=`YOUR_SMTP_PORT`
+echo "da@powerkernel.net" > /root/.email.txt
+echo "ns0.hostcp.xyz" > /root/.ns1.txt
+echo "ns2.hostcp.xyz" > /root/.ns2.txt
 ```
 
 ## Default Option
