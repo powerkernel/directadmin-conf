@@ -4,7 +4,7 @@ Direct Admin Auto Install
 
 ## Prepare
 
-```
+```bash
 export CID=`YOUR_CLIENT_ID`
 export LID=`YOUR_LICENSE_ID`
 export LIP=`YOUR_LICENSE_IP`
@@ -19,12 +19,12 @@ echo "ns2.hostcp.xyz" > /root/.ns2.txt
 
 ## Default Option
 
-```
+```bash
 curl https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/install-default.sh | sh
 ```
 
 ## CloudLinux Option
 
-```
+```bash
 curl https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/install-cln.sh | sh
 ```
