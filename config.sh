@@ -43,7 +43,8 @@ systemctl start iptables
 service directadmin restart
 
 # SSL
-/usr/local/directadmin/scripts/letsencrypt.sh request_single $(hostname -f) ec384
+sleep 10
+/usr/local/directadmin/scripts/letsencrypt.sh request $(hostname -f) ec384
 /usr/local/directadmin/directadmin set carootcert /usr/local/directadmin/conf/carootcert.pem
 /usr/local/directadmin/directadmin set ssl 1
 sed -i 's+tcp://localhost+ssl://localhost+g' /var/www/html/roundcube/plugins/password/config.inc.php
