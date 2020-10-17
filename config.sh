@@ -22,13 +22,6 @@ service directadmin restart
 # DKIM
 /usr/local/directadmin/scripts/dkim_create.sh $(hostname -f)
 
-# SSL
-/usr/local/directadmin/scripts/letsencrypt.sh request_single $(hostname -f) ec384
-/usr/local/directadmin/directadmin set carootcert /usr/local/directadmin/conf/carootcert.pem
-/usr/local/directadmin/directadmin set ssl 1
-sed -i 's+tcp://localhost+ssl://localhost+g' /var/www/html/roundcube/plugins/password/config.inc.php
-service directadmin restart
-
 # Auto block IPs
 yum -y install iptables-services
 systemctl enable iptables
@@ -47,6 +40,13 @@ chattr +i /usr/libexec/iptables/iptables.init
 touch /root/blocked_ips.txt
 touch /root/exempt_ips.txt
 systemctl start iptables
+service directadmin restart
+
+# SSL
+/usr/local/directadmin/scripts/letsencrypt.sh request_single $(hostname -f) ec384
+/usr/local/directadmin/directadmin set carootcert /usr/local/directadmin/conf/carootcert.pem
+/usr/local/directadmin/directadmin set ssl 1
+sed -i 's+tcp://localhost+ssl://localhost+g' /var/www/html/roundcube/plugins/password/config.inc.php
 service directadmin restart
 
 # disable email for new account
