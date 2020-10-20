@@ -20,6 +20,11 @@ service directadmin restart
 /usr/local/directadmin/custombuild/build phpmyadmin
 
 # DKIM
+/usr/local/directadmin/directadmin set dkim 1
+/usr/local/directadmin/custombuild/build update
+/usr/local/directadmin/custombuild/build exim
+/usr/local/directadmin/custombuild/build eximconf
+service directadmin restart
 /usr/local/directadmin/scripts/dkim_create.sh $(hostname -f)
 
 # Auto block IPs
