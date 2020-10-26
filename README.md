@@ -28,3 +28,65 @@ curl https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/install
 ```bash
 curl https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/install-cln.sh | sh
 ```
+
+## MISC
+
+Open ports for AWS Lightsail
+
+```bash
+export INSTANCE=YOUR_INSTANCE_NAME
+export REGION=YOUR_AWS_REGION
+
+aws lightsail open-instance-public-ports \
+    --instance-name $INSTANCE \
+    --port-info fromPort=21,protocol=TCP,toPort=21 \
+    --region $REGION
+aws lightsail open-instance-public-ports \
+    --instance-name $INSTANCE \
+    --port-info fromPort=25,protocol=TCP,toPort=25 \
+    --region $REGION
+aws lightsail open-instance-public-ports \
+    --instance-name $INSTANCE \
+    --port-info fromPort=53,protocol=TCP,toPort=53 \
+    --region $REGION
+aws lightsail open-instance-public-ports \
+    --instance-name $INSTANCE \
+    --port-info fromPort=53,protocol=UDP,toPort=53 \
+    --region $REGION
+aws lightsail open-instance-public-ports \
+    --instance-name $INSTANCE \
+    --port-info fromPort=110,protocol=TCP,toPort=110 \
+    --region $REGION
+aws lightsail open-instance-public-ports \
+    --instance-name $INSTANCE \
+    --port-info fromPort=143,protocol=TCP,toPort=143 \
+    --region $REGION
+aws lightsail open-instance-public-ports \
+    --instance-name $INSTANCE \
+    --port-info fromPort=443,protocol=TCP,toPort=443 \
+    --region $REGION
+aws lightsail open-instance-public-ports \
+    --instance-name $INSTANCE \
+    --port-info fromPort=465,protocol=TCP,toPort=465 \
+    --region $REGION
+aws lightsail open-instance-public-ports \
+    --instance-name $INSTANCE \
+    --port-info fromPort=587,protocol=TCP,toPort=587 \
+    --region $REGION
+aws lightsail open-instance-public-ports \
+    --instance-name $INSTANCE \
+    --port-info fromPort=993,protocol=TCP,toPort=993 \
+    --region $REGION
+aws lightsail open-instance-public-ports \
+    --instance-name $INSTANCE \
+    --port-info fromPort=995,protocol=TCP,toPort=995 \
+    --region $REGION
+aws lightsail open-instance-public-ports \
+    --instance-name $INSTANCE \
+    --port-info fromPort=2222,protocol=TCP,toPort=2222 \
+    --region $REGION
+aws lightsail open-instance-public-ports \
+    --instance-name $INSTANCE \
+    --port-info fromPort=35000,protocol=TCP,toPort=35999 \
+    --region $REGION
+```
