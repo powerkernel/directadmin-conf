@@ -53,7 +53,9 @@ sleep 10
 /usr/local/directadmin/directadmin set carootcert /usr/local/directadmin/conf/carootcert.pem
 /usr/local/directadmin/directadmin set ssl 1
 sed -i 's+tcp://localhost+ssl://localhost+g' /var/www/html/roundcube/plugins/password/config.inc.php
+echo "\$config['force_https'] = true;" >> /var/www/html/roundcube/config/config.inc.php
 service directadmin restart
+/usr/local/directadmin/custombuild set redirect_host $(hostname -f)
 
 # disable email for new account
 mkdir -p /usr/local/directadmin/scripts/custom
