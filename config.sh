@@ -56,6 +56,11 @@ sed -i 's+tcp://localhost+ssl://localhost+g' /var/www/html/roundcube/plugins/pas
 echo "\$config['force_https'] = true;" >> /var/www/html/roundcube/config/config.inc.php
 service directadmin restart
 /usr/local/directadmin/custombuild set redirect_host $(hostname -f)
+mkdir -p /usr/local/directadmin/custombuild/custom/phpmyadmin
+touch /usr/local/directadmin/custombuild/custom/phpmyadmin/.htaccess
+echo "RewriteEngine On" >> /usr/local/directadmin/custombuild/custom/phpmyadmin/.htaccess
+echo "RewriteCond %{HTTPS} off" >> /usr/local/directadmin/custombuild/custom/phpmyadmin/.htaccess
+echo "RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]" >> /usr/local/directadmin/custombuild/custom/phpmyadmin/.htaccess
 
 # disable email for new account
 mkdir -p /usr/local/directadmin/scripts/custom
@@ -96,3 +101,7 @@ service exim restart
 # MISC
 wget -O /usr/local/directadmin/data/templates/custom/mail_settings.html https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/misc/mail_settings.html
 wget -O /usr/local/directadmin/data/templates/custom/outlook_setup.reg https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/misc/outlook_setup.reg
+
+# reload, rebuild
+/usr/local/directadmin/custombuild/build phpmyadmin
+/usr/local/directadmin/custombuild/build rewrite_confs
