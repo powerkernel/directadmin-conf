@@ -17,7 +17,7 @@ echo "YOUR_NS1" > /root/.ns1.txt
 echo "YOUR_NS2" > /root/.ns2.txt
 ```
 
-## Default Option
+## CentOS 7, 8 Default Option
 
 ```bash
 curl https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/install-default.sh | sh
