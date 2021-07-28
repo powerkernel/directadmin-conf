@@ -9,7 +9,6 @@ cd /usr/local/directadmin/scripts
 /usr/local/directadmin/custombuild/build opcache
 
 # Direct Admin settings
-#/usr/local/directadmin/directadmin set ssl_redirect_host $(hostname -f)
 /usr/local/directadmin/directadmin set force_hostname $(hostname -f)
 /usr/local/directadmin/directadmin set letsencrypt_renewal_notice_to_admins 0
 /usr/local/directadmin/directadmin set lost_password 1
@@ -34,26 +33,6 @@ service directadmin restart
 /usr/local/directadmin/custombuild/build eximconf
 service directadmin restart
 /usr/local/directadmin/scripts/dkim_create.sh $(hostname -f)
-
-# Auto block IPs
-yum -y install iptables-services
-systemctl enable iptables
-mv /usr/libexec/iptables/iptables.init /usr/libexec/iptables/iptables.init.backup
-wget -O /usr/libexec/iptables/iptables.init http://files.directadmin.com/services/all/block_ips/2.2/iptables
-wget -O /usr/local/directadmin/scripts/custom/block_ip.sh http://files.directadmin.com/services/all/block_ips/2.2/block_ip.sh
-wget -O /usr/local/directadmin/scripts/custom/show_blocked_ips.sh http://files.directadmin.com/services/all/block_ips/2.2/show_blocked_ips.sh
-wget -O /usr/local/directadmin/scripts/custom/unblock_ip.sh http://files.directadmin.com/services/all/block_ips/2.2/unblock_ip.sh
-wget -O /usr/local/directadmin/scripts/custom/brute_force_notice_ip.sh http://files.directadmin.com/services/all/block_ips/2.2/brute_force_notice_ip.sh
-chmod 700 /usr/local/directadmin/scripts/custom/block_ip.sh 
-chmod 700 /usr/local/directadmin/scripts/custom/show_blocked_ips.sh 
-chmod 700 /usr/local/directadmin/scripts/custom/unblock_ip.sh
-chmod 700 /usr/local/directadmin/scripts/custom/brute_force_notice_ip.sh
-chmod 755 /usr/libexec/iptables/iptables.init
-chattr +i /usr/libexec/iptables/iptables.init
-touch /root/blocked_ips.txt
-touch /root/exempt_ips.txt
-systemctl start iptables
-service directadmin restart
 
 # SSL
 sleep 10
@@ -108,5 +87,4 @@ wget -O /usr/local/directadmin/data/templates/custom/mail_settings.html https://
 wget -O /usr/local/directadmin/data/templates/custom/outlook_setup.reg https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/misc/outlook_setup.reg
 
 # reload, rebuild
-/usr/local/directadmin/custombuild/build phpmyadmin
 /usr/local/directadmin/custombuild/build rewrite_confs
