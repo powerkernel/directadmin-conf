@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Install ncftpls
+cd /usr/local/directadmin/scripts
+./ncftp.sh
+
 # Direct Admin settings
 /usr/local/directadmin/directadmin set ssl_redirect_host $(hostname -f)
 /usr/local/directadmin/directadmin set force_hostname $(hostname -f)
