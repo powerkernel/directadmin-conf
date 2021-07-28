@@ -61,6 +61,7 @@ touch /usr/local/directadmin/custombuild/custom/phpmyadmin/.htaccess
 echo "RewriteEngine On" >> /usr/local/directadmin/custombuild/custom/phpmyadmin/.htaccess
 echo "RewriteCond %{HTTPS} off" >> /usr/local/directadmin/custombuild/custom/phpmyadmin/.htaccess
 echo "RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]" >> /usr/local/directadmin/custombuild/custom/phpmyadmin/.htaccess
+/usr/local/directadmin/custombuild/build phpmyadmin
 
 # disable email for new account
 mkdir -p /usr/local/directadmin/scripts/custom
