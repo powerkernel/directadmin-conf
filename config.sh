@@ -8,6 +8,11 @@ cd /usr/local/directadmin/scripts
 /usr/local/directadmin/custombuild/build set opcache yes
 /usr/local/directadmin/custombuild/build opcache
 
+# ModSecurity
+/usr/local/directadmin/custombuild/build set modsecurity yes
+/usr/local/directadmin/custombuild/build set modsecurity_ruleset owasp
+/usr/local/directadmin/custombuild/build modsecurity
+
 # Direct Admin settings
 /usr/local/directadmin/directadmin set force_hostname $(hostname -f)
 /usr/local/directadmin/directadmin set letsencrypt_renewal_notice_to_admins 0
