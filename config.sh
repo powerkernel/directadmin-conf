@@ -24,6 +24,7 @@ service directadmin restart
 
 # DKIM
 /usr/local/directadmin/directadmin set dkim 1
+service directadmin restart
 /usr/local/directadmin/custombuild/build update
 /usr/local/directadmin/custombuild/build exim
 /usr/local/directadmin/custombuild/build eximconf
