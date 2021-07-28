@@ -4,6 +4,10 @@
 cd /usr/local/directadmin/scripts
 ./ncftp.sh
 
+# OpCache
+/usr/local/directadmin/custombuild/build set opcache yes
+/usr/local/directadmin/custombuild/build opcache
+
 # Direct Admin settings
 #/usr/local/directadmin/directadmin set ssl_redirect_host $(hostname -f)
 /usr/local/directadmin/directadmin set force_hostname $(hostname -f)
