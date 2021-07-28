@@ -8,7 +8,6 @@ cd /usr/local/directadmin/scripts
 /usr/local/directadmin/directadmin set ssl_redirect_host $(hostname -f)
 /usr/local/directadmin/directadmin set force_hostname $(hostname -f)
 /usr/local/directadmin/directadmin set letsencrypt_renewal_notice_to_admins 0
-/usr/local/directadmin/directadmin set hide_brute_force_notifications 1
 /usr/local/directadmin/directadmin set lost_password 1
 /usr/local/directadmin/directadmin set clear_blacklist_ip_time 1440
 /usr/local/directadmin/directadmin set unblock_brute_ip_time 1440
