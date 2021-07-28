@@ -5,7 +5,7 @@ cd /usr/local/directadmin/scripts
 ./ncftp.sh
 
 # Direct Admin settings
-/usr/local/directadmin/directadmin set ssl_redirect_host $(hostname -f)
+#/usr/local/directadmin/directadmin set ssl_redirect_host $(hostname -f)
 /usr/local/directadmin/directadmin set force_hostname $(hostname -f)
 /usr/local/directadmin/directadmin set letsencrypt_renewal_notice_to_admins 0
 /usr/local/directadmin/directadmin set lost_password 1
