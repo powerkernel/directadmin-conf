@@ -56,8 +56,6 @@ sleep 10
 /usr/local/directadmin/scripts/letsencrypt.sh request_single $(hostname -f) ec384
 sed -i 's+tcp://localhost+ssl://localhost+g' /var/www/html/roundcube/plugins/password/config.inc.php
 echo "\$config['force_https'] = true;" >> /var/www/html/roundcube/config/config.inc.php
-service directadmin restart
-/usr/local/directadmin/custombuild/build set redirect_host $(hostname -f)
 mkdir -p /usr/local/directadmin/custombuild/custom/phpmyadmin
 touch /usr/local/directadmin/custombuild/custom/phpmyadmin/.htaccess
 echo "RewriteEngine On" >> /usr/local/directadmin/custombuild/custom/phpmyadmin/.htaccess
