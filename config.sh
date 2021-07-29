@@ -1,9 +1,10 @@
 #!/bin/sh
 
 # S3FS
-yum install s3fs-fuse
-echo AKIAIOSFODNN7EXAMPLE:wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY > /etc/.passwd-s3fs
-chmod 600 /etc/.passwd-s3fs
+yum install s3fs-fuse -y
+echo "$AWS_S3_KEY:$AWS_S3_SECERT" > /etc/passwd-s3fs
+chmod 600 /etc/passwd-s3fs
+echo "s3fs#$AWS_S3_BUCKET /home/admin/admin_backups fuse _netdev,allow_other,use_path_request_style,url=https://$AWS_S3_REGION,umask=0000 0 0" >> /etc/fstab
 
 # Install ncftpls
 cd /usr/local/directadmin/scripts
