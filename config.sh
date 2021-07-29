@@ -4,6 +4,9 @@
 cd /usr/local/directadmin/scripts
 ./ncftp.sh
 
+# set MySQL to only bind to 127.0.0.1
+echo "bind-address = 127.0.0.1" >> /etc/my.cnf
+
 # OpCache
 /usr/local/directadmin/custombuild/build set opcache yes
 /usr/local/directadmin/custombuild/build opcache
