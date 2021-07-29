@@ -16,7 +16,7 @@ export SMTP_PORT="YOUR_SMTP_PORT"
 export AWS_S3_KEY="YOUR_AWS_S3_KEY"
 export AWS_S3_SECERT="YOUR_AWS_S3_SECERT"
 export AWS_S3_BUCKET="YOUR_AWS_S3_BUCKET"
-export AWS_S3_BUCKET="s3-ap-southeast-1.amazonaws.com"
+export AWS_S3_REGION="s3-ap-southeast-1.amazonaws.com"
 echo "YOUR_NS1" > /root/.ns1.txt
 echo "YOUR_NS2" > /root/.ns2.txt
 ```
