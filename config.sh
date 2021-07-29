@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# S3FS
+yum install s3fs-fuse
+echo AKIAIOSFODNN7EXAMPLE:wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY > /etc/.passwd-s3fs
+chmod 600 /etc/.passwd-s3fs
+
 # Install ncftpls
 cd /usr/local/directadmin/scripts
 ./ncftp.sh
