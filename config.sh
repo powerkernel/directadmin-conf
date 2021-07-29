@@ -6,6 +6,7 @@ cd /usr/local/directadmin/scripts
 
 # set MySQL to only bind to 127.0.0.1
 echo "bind-address = 127.0.0.1" >> /etc/my.cnf
+service mysql restart
 
 # OpCache
 /usr/local/directadmin/custombuild/build set opcache yes
