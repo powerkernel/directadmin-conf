@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Admin name
-sed -i "s/name=admin/name=$ADMIN_NAME/g" /usr/local/directadmin/data/users/admin/user.conf
+sed -i "0,/name=admin/s//name=$ADMIN_NAME/" /usr/local/directadmin/data/users/admin/user.conf
 
 # S3FS
 yum install s3fs-fuse -y
