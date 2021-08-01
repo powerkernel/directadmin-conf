@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Admin name
+sed -i "s/name=admin/name=$ADMIN_NAME/g" /usr/local/directadmin/data/users/admin/user.conf
+
 # S3FS
 yum install s3fs-fuse -y
 echo "$AWS_S3_KEY:$AWS_S3_SECERT" > /etc/passwd-s3fs
