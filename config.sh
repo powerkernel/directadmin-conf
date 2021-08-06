@@ -3,6 +3,15 @@
 # Admin name
 sed -i "0,/name=admin/s//name=$ADMIN_NAME/" /usr/local/directadmin/data/users/admin/user.conf
 
+# CustomBuild autoupdate
+/usr/local/directadmin/custombuild/build set email admin@$(hostname -f)
+/usr/local/directadmin/custombuild/build set cron_frequency weekly
+/usr/local/directadmin/custombuild/build set notifications yes
+/usr/local/directadmin/custombuild/build set da_autoupdate yes
+/usr/local/directadmin/custombuild/build set updates yes
+/usr/local/directadmin/custombuild/build set webapps_updates yes
+
+
 # S3FS
 yum install s3fs-fuse -y
 echo "$AWS_S3_KEY:$AWS_S3_SECERT" > /etc/passwd-s3fs
