@@ -10,6 +10,7 @@ sed -i "0,/name=admin/s//name=$ADMIN_NAME/" /usr/local/directadmin/data/users/ad
 /usr/local/directadmin/custombuild/build set da_autoupdate yes
 /usr/local/directadmin/custombuild/build set updates yes
 /usr/local/directadmin/custombuild/build set webapps_updates yes
+/usr/local/directadmin/custombuild/build cron
 
 
 # S3FS
