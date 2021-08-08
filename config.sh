@@ -46,6 +46,7 @@ service mysql restart
 /usr/local/directadmin/directadmin set user_brutecount 10
 /usr/local/directadmin/directadmin set enforce_difficult_passwords 1
 /usr/local/directadmin/directadmin set purge_spam_days 7
+/usr/local/directadmin/directadmin set default_ttl 14400
 
 # PMA One-Click login
 /usr/local/directadmin/directadmin set one_click_pma_login 1
