@@ -10,8 +10,8 @@ sh cldeploy -k CL-ZriXBMbrAdWPnCmymqTlegeo
 
 ```bash
 mkdir -p /usr/local/directadmin/custombuild
-wget -O /usr/local/directadmin/custombuild/options.conf https://raw.githubusercontent.com/powerkernel/directadmin-conf/main/directadmin/custombuild/options.conf
-wget -O /usr/local/directadmin/custombuild/php_extensions.conf https://raw.githubusercontent.com/powerkernel/directadmin-conf/directadmin/custombuild/php_extensions.conf
+wget -O /usr/local/directadmin/custombuild/options.conf https://raw.githubusercontent.com/powerkernel/directadmin-conf/cloudlinux/directadmin/custombuild/options.conf
+wget -O /usr/local/directadmin/custombuild/php_extensions.conf https://raw.githubusercontent.com/powerkernel/directadmin-conf/cloudlinux/directadmin/custombuild/php_extensions.conf
 ```
 
 ```bash
