@@ -19,5 +19,13 @@ export DA_HOSTNAME=$(hostname -f)
 export DA_EMAIL=admin@$(hostname -f)
 export DA_NS1=ns0.hostcp.xyz
 export DA_NS2=ns1.hostcp.xyz
-bash <(curl -LSs <https://download.directadmin.com/setup.sh> || curl -LSs <https://download-alt.directadmin.com/setup.sh>) 'Provided license key should go here'
+wget -O setup.sh https://download.directadmin.com/setup.sh
+chmod 755 setup.sh
+./setup.sh $LICENSE_KEY
 ```
+
+## Configuration
+
+Wait for DA installation and AutoSSL configuration to be completed
+
+1. Configure IPv6
