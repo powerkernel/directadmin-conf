@@ -39,6 +39,16 @@ Wait for DA installation and AutoSSL configuration to be completed
 
 - CloudLinux Widzard
 - Update LVE settings
+  SPEED: 100%
+  SPEED MYSQL: 400%
+  VMEN: 0
+  PMEM: 2G
+  IO: 2.5MB/s
+  MySQL IO: 20MB/s
+  IOPS: 1024
+  EP: 30
+  NPROC: 100
+  INODES soft/hard: 0
 - config.sh
 - Configure IPv6
   Add IPv6/128, View IPv4, link IPv6 to IPv4 (Check all)
@@ -46,3 +56,17 @@ Wait for DA installation and AutoSSL configuration to be completed
   wget https://repo.imunify360.cloudlinux.com/defence360/imav-deploy.sh -O imav-deploy.sh
   bash imav-deploy.sh
 - Config ImunifyAV
+  Only notify for Custom scan start & malware detected
+- Crontab Imunify: `0 3 * * * /usr/bin/imunify360-agent malware user scan`
+- Config CSF:
+  - PT_USERMEM = 1024
+- Config CSF Ignore: (/etc/csf/csf.pignore)
+  - exe:/usr/sbin/rngd
+  - exe:/usr/sbin/imunify-notifier
+- Config auto backup: use ftp 127.0.0.1 (or pay for $$$ S3 calls)
+- Disable skins
+
+  ```bash
+  touch /usr/local/directadmin/data/skins/enhanced/.disabled
+  touch /usr/local/directadmin/data/skins/power_user/.disabled
+  ```
