@@ -19,7 +19,6 @@ cd /usr/local/directadmin/scripts
 # Direct Admin settings: https://docs.directadmin.com/directadmin/general-usage/all-directadmin-conf-values.html
 /usr/local/directadmin/directadmin set force_hostname $(hostname -f)
 /usr/local/directadmin/directadmin set letsencrypt_renewal_notice_to_admins 0
-/usr/local/directadmin/directadmin set lost_password 1
 /usr/local/directadmin/directadmin set clear_blacklist_ip_time 1440
 /usr/local/directadmin/directadmin set unblock_brute_ip_time 1440
 /usr/local/directadmin/directadmin set ip_brutecount 10
