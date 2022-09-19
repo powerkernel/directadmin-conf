@@ -16,7 +16,7 @@ echo "s3fs#$AWS_S3_BUCKET /home/admin/admin_backups fuse _netdev,allow_other,use
 cd /usr/local/directadmin/scripts
 ./ncftp.sh
 
-# Direct Admin settings: https://docs.directadmin.com/directadmin/general-usage/all-directadmin-conf-values.html
+# Direct Admin/Custombuild settings: https://docs.directadmin.com/directadmin/general-usage/all-directadmin-conf-values.html
 /usr/local/directadmin/directadmin set force_hostname $(hostname -f)
 /usr/local/directadmin/directadmin set letsencrypt_renewal_notice_to_admins 0
 /usr/local/directadmin/directadmin set clear_blacklist_ip_time 1440
@@ -24,8 +24,35 @@ cd /usr/local/directadmin/scripts
 /usr/local/directadmin/directadmin set ip_brutecount 10
 /usr/local/directadmin/directadmin set user_brutecount 10
 /usr/local/directadmin/directadmin set enforce_difficult_passwords 1
+/usr/local/directadmin/directadmin set hide_brute_force_notifications 1
 /usr/local/directadmin/directadmin set purge_spam_days 7
 /usr/local/directadmin/directadmin set default_ttl 14400
+/usr/local/directadmin/directadmin set brute_force_scan_apache_logs 2
+/usr/local/directadmin/directadmin set one_click_webmail_login 1
+/usr/local/directadmin/directadmin set webmail_link roundcube
+/usr/local/directadmin/directadmin set one_click_webmail_link /webmail
+
+/usr/local/directadmin/custombuild/build set redirect_host $(hostname -f)
+
+# HTTPS redirect
+Add to near bottom /etc/httpd/conf/extra/httpd-includes.conf
+```
+<location /phpMyAdmin>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</location>
+<location /webmail>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</location>
+<location /roundcube>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</location>
+```
 
 # PMA One-Click login
 /usr/local/directadmin/directadmin set one_click_pma_login 1

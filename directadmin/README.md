@@ -39,11 +39,11 @@ Wait for DA installation and AutoSSL configuration to be completed
 
 - CloudLinux Widzard
 - Update LVE settings
-  SPEED: 100%
+  SPEED: 200%
   SPEED MYSQL: 400%
   VMEN: 0
   PMEM: 2G
-  IO: 2.5MB/s
+  IO: 5MB/s
   MySQL IO: 20MB/s
   IOPS: 1024
   EP: 30
@@ -59,7 +59,11 @@ Wait for DA installation and AutoSSL configuration to be completed
   Only notify for Custom scan start & malware detected
 - Crontab Imunify: `0 3 * * * /usr/bin/imunify360-agent malware user scan`
 - Config CSF:
+  - SMTP_BLOCK = OFF
   - PT_USERMEM = 1024
+  - LF_PERMBLOCK_ALERT = OFF
+  - LF_NETBLOCK_ALERT = OFF
+  - LF_EMAIL_ALERT = OFF
 - Config CSF Ignore: (/etc/csf/csf.pignore)
   - exe:/usr/sbin/rngd
   - exe:/usr/sbin/imunify-notifier
