@@ -25,7 +25,7 @@ chmod 755 setup.sh
 ```
 
 ## Configuration
-
+```
 export SMTP_USER="YOUR_SMTP_USER"
 export SMTP_PASS="YOUR_SMTP_PASS"
 export SMTP_HOST="YOUR_SMTP_HOST"
@@ -34,6 +34,7 @@ export AWS_S3_KEY="YOUR_AWS_S3_KEY"
 export AWS_S3_SECERT="YOUR_AWS_S3_SECERT"
 export AWS_S3_BUCKET="YOUR_AWS_S3_BUCKET"
 export AWS_S3_REGION="s3-ap-southeast-1.amazonaws.com"
+```
 
 Wait for DA installation and AutoSSL configuration to be completed
 
