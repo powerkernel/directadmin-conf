@@ -1,5 +1,6 @@
+#!/bin/sh
 check=`cat /proc/loadavg | sed 's/\./ /' | awk '{print $1}'`
- 
+
 if [ $check -gt 9 ]
 then
   service httpd restart
